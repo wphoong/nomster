@@ -1,12 +1,21 @@
 <h1>Welcome to my Nomster App!</h1>
 
 
-<% @places.each do |place| %>
+
+<% @posts.each do |post| %>
   <div class="booyah-box col-10 offset-1">
-    <h2><%= place.name %></h2>
-    <i><%= place.address %></i><br /><br />
-    <p><%= place.description %></p><br />
+    <h2><%= post.name %></h2>
+    <i><%= post.address %></i><br /><br />
+    <p><%= post.description %></p><br />
   </div>
 
 
 <% end %>
+
+<%= will_paginate @posts %>
+
+
+
+
+  
+
