@@ -7,6 +7,11 @@
     <h2><%= post.name %></h2>
     <i><%= post.address %></i><br /><br />
     <p><%= post.description %></p><br />
+  
+    <% if post.user.present? %>
+      <small><%= post.user.email %></small>
+    <% end %>
+
   </div>
 
 
