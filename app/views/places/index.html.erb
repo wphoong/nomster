@@ -8,6 +8,17 @@
    
     <i><%= post.address %></i><br /><br />
     <p><%= post.description %></p><br />
+
+    <div class="row">
+    <% if post.photos.present? %>
+      <div class='col-10'>
+        <photogrid id='photos'>
+          <%= image_tag post.photos.last.picture %>
+          
+        </photogrid>
+      </div>
+      <% end %>
+    </div>
   
     <% if post.user.present? %>
       <small><%= post.user.email %></small>
