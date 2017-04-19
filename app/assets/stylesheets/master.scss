@@ -83,9 +83,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
-.navbar {
+.navbar .navbar-inverse {
   background:image_url('cartographer.png');
   box-shadow: 0px 1px 3px #2a2a2a;
+  margin-bottom: 0;
+
 }
 
 .navbar-inverse .navbar-brand {
@@ -121,7 +123,6 @@ h1, h2, h3, h4, h5, h6 {
 .carousel-inner > .carousel-item > img, .carousel-inner > .carousel-item > a > img {
   max-height: 550px;
   width: 100%;
-  margin-bottom: 0;
 }
 
 .carousel-caption {
