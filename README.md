@@ -1,24 +1,5 @@
-# README
+# Nomster
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Nomster is a user generated foodie network built using the Ruby on Rails framework, HTML and CSS. Nomster integrates with the Google Map API and includes features like user comments, star ratings, image uploading, and user authentication.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Nomster can be found at https://nomster-wilson-p.herokuapp.com/
