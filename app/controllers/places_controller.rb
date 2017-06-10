@@ -1,12 +1,10 @@
 class PlacesController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
-
+  before_action :authenticate_user!, only: %i[new create edit update destroy]
 
   def index
     @places = Place.last
-    @posts = Place.paginate(:page => params[:page], :per_page => 10)
+    @posts = Place.paginate(page: params[:page], per_page: 10)
   end
-
 
   def new
     @place = Place.new
@@ -22,24 +20,24 @@ class PlacesController < ApplicationController
   end
 
   def show
-      @place = Place.find(params[:id])
-      @comment = Comment.new
-      @photo = Photo.new
+    @place = Place.find(params[:id])
+    @comment = Comment.new
+    @photo = Photo.new
   end
 
   def edit
-      @place = Place.find(params[:id])
+    @place = Place.find(params[:id])
 
-      if @place.user != current_user
-        return render text: 'Not Allowed', status: :forbidden
-      end
+    if @place.user != current_user
+      return render text: 'Not Allowed', status: :forbidden
+    end
   end
 
   def update
     @place = Place.find(params[:id])
-    
+
     if @place.user != current_user
-        return render text: 'Not Allowed', status: :forbidden
+      return render text: 'Not Allowed', status: :forbidden
     end
 
     @place.update_attributes(place_params)
@@ -53,19 +51,16 @@ class PlacesController < ApplicationController
   def destroy
     @place = Place.find(params[:id])
     if @place.user != current_user
-        return render text: 'Not Allowed', status: :forbidden
+      return render text: 'Not Allowed', status: :forbidden
     end
 
     @place.destroy
     redirect_to root_path
-
   end
-
 
   private
 
   def place_params
     params.require(:place).permit(:name, :description, :address)
   end
-
 end
