@@ -2,7 +2,6 @@
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    
   </ol>
   <div class="carousel-inner" role="listbox">
     <div class="carousel-item active">
@@ -16,7 +15,6 @@
       <div class="carousel-caption d-none d-md-block">
         <h3>Looking for hotdogs?</h3>
     </div>
-    
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -27,52 +25,34 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
-
-
 <% @posts.each do |post| %>
   <div class="booyah-box col-10 offset-1">
     <h1><%= link_to post.name, place_path(post) %></h1>
-   
     <i><%= post.address %></i><br /><br />
     <p><%= post.description %></p><br />
-
     <div class="row">
-    <% if post.photos.present? %>
-      <div class='col-10'>
-        <photogrid id='photos'>
-          <%= image_tag post.photos.last.picture %>
-          
-        </photogrid>
-      </div>
+      <% if post.photos.present? %>
+        <div class='col-10'>
+          <photogrid id='photos'>
+            <%= image_tag post.photos.last.picture %>
+          </photogrid>
+        </div>
       <% end %>
     </div>
-  
     <% if post.user.present? %>
       <small><%= post.user.email %></small>
     <% end %>
-
-
-  <% if post.comments.present? %>
-    <div class="col-12">
-      <blockquote>
-        <% if post.comments.last.humanized_rating.present? %>
-        <b><%= post.comments.last.humanized_rating %></b> -
-        <% end %>
-        <%= post.comments.last.message %>
-        <small>- <%= post.comments.last.user.email %></small>
-      </blockquote>
-    </div>
-  <% end %>
-
-
+    <% if post.comments.present? %>
+      <div class="col-12">
+        <blockquote>
+          <% if post.comments.last.humanized_rating.present? %>
+          <b><%= post.comments.last.humanized_rating %></b> -
+          <% end %>
+          <%= post.comments.last.message %>
+          <small>- <%= post.comments.last.user.email %></small>
+        </blockquote>
+      </div>
+    <% end %>
   </div>
-
 <% end %>
-
 <%= will_paginate @posts %>
-
-
-
-
-  
-
